@@ -45,6 +45,6 @@ class Day02
   end
 
   puts "result Part 01 - #{score_part01}"
-  puts "----------------"
+  puts "----------------------"
   puts "result Part 02 - #{score_part02}"
 end

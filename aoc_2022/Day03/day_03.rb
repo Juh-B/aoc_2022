@@ -1,5 +1,5 @@
 class Day03
-  file = File.readlines('./Day03/sample.txt')
+  file = File.readlines('./Day03/input.txt')
 
   rucksack = file.map(&:chomp).map(&:chars)
   total = 0

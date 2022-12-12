@@ -3,7 +3,7 @@ class Day03
   rucksacks = file.map(&:chomp).map(&:chars)
 
   # Part 01
-  total_01 = 0
+  total01 = 0
 
   rucksacks.each do |compartment|
     half = compartment.length/2
@@ -12,23 +12,24 @@ class Day03
 
     itens = rigth.intersection(left)
     itens.each do |item|
-      total_01 += item =~ /[a-z]/ ? item.ord - 96 : item.ord - 38
+      total01 += item =~ /[a-z]/ ? item.ord - 96 : item.ord - 38
     end
   end
 
-  puts "Part 01 -> The sum of the priorities is #{total_01}"
-
+  puts "Part 01 -> The sum of the priorities is #{total01}"
 
   # Part 02
-  total_02 = 0
+  total02 = 0
 
-  rucksacks.each_slice(3).to_a.each do |rucksack|
-    badges = rucksack[0].intersection(rucksack[1], rucksack[2])
-    badges.each do |sticker|
-      total_02 += sticker =~ /[a-z]/ ? sticker.ord - 96 : sticker.ord - 38
+  rucksacks
+    .each_slice(3)
+    .to_a
+    .each do |rucksack|
+      badges = rucksack[0].intersection(rucksack[1], rucksack[2])
+      badges.each do |sticker|
+        total02 += sticker =~ /[a-z]/ ? sticker.ord - 96 : sticker.ord - 38
+      end
     end
-  end
 
-  puts "Part 02 -> The sum of the priorities is #{total_02}"
-
+  puts "Part 02 -> The sum of the priorities is #{total02}"
 end

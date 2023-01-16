@@ -1,10 +1,10 @@
 require 'set'
 
 class Day04
-  file = File.readlines('./Day04/sample.txt')
+  file = File.readlines('./Day04/input.txt')
 
   array = []
-  file.each { |l| l.chomp.split('').each { |c| array << c.to_i if c.ord > 47 } }
+  file.each { |l| l.chomp.split(/[,-]/).each { |c| array << c.to_i if c.ord > 47 } }
 
   p array
     .each_slice(2).to_a

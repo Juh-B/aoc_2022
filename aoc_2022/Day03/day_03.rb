@@ -20,7 +20,7 @@ class Day03
 
   # Part 02
   total02 = 0
-
+  
   rucksacks
     .each_slice(3)
     .to_a

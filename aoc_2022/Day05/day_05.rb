@@ -1,5 +1,5 @@
 class Day05
-  file = File.readlines('./Day05/input.txt')
+  file = File.readlines('./Day05/sample.txt')
 
   towers = []
   file.each do |l|
@@ -17,13 +17,22 @@ class Day05
 
     # Read and identify each moviment
     if l.include?('move')
-      el = l.split(' ')[1].to_i
+      moviment = l.split(' ')[1].to_i
       from = l.split(' ')[3].to_i - 1
       to = l.split(' ')[5].to_i - 1
 
-      el.times do
-        towers[to].insert(0, towers[from].shift)
-      end
+      # Part 01
+      # moviment.times do
+      #   towers[to].insert(0, towers[from].shift)
+      # end
+
+      # Part 02
+      towers[from]
+        .shift(moviment)
+        .reverse
+        .each do |tower|
+          towers[to].insert(0, tower)
+        end
     end
   end
 
@@ -32,8 +41,6 @@ class Day05
   towers.each do |tower|
     top << tower.first
   end
-
+  
   puts "The crates that end up on top of each stack are #{top.join} "
-
-  p top.join
 end
